@@ -1,59 +1,117 @@
-<section class="py-16">
+<section
+    dir="{{ app()->getLocale() === 'fa' ? 'rtl' : 'ltr' }}"
+    class="bg-[#FAFAF8] py-14 sm:py-16 lg:py-20"
+>
 
-    <div class="max-w-7xl mx-auto px-4">
 
-        <div class="text-center mb-10">
-            <h2 class="text-3xl font-bold mt-2">
-                {{ __('messages.companies') }}
-            </h2>
+    <div class="mx-auto">
+
+        {{-- Header --}}
+        <div class="flex justify-center items-end mb-14">
+
+            <div>
+                <h2 
+                style="font-family :Georgia, 'Times New Roman', Times, serif"
+                
+                class="text-4xl md:text-5xl font-serif font-medium uppercase tracking-tight text-slate-900 leading-tight">
+                    {{ __('messages.companies') }}
+                </h2>
+            </div>
+
+            {{-- <div class="lg:max-w-lg lg:ms-auto">
+                <p class="text-sm md:text-base leading-7 text-slate-500">
+                    {{ __('messages.companies_description') }}
+                </p>
+            </div> --}}
+
         </div>
 
-        <div class="relative">
 
-            <!-- دکمه قبلی -->
-            <div class="partner-prev absolute left-0 top-1/2 -translate-y-1/2 z-20">
-                <button
-                    class="w-10 h-10 rounded-full bg-white shadow-xl hover:bg-teal-700 hover:text-white transition flex items-center justify-center text-2xl">
-                            ❯
-                </button>
-            </div>
+        {{-- Companies Grid --}}
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 border-t border-slate-200">
 
-            <!-- دکمه بعدی -->
-            <div class="partner-next absolute right-0 top-1/2 -translate-y-1/2 z-20">
-                <button
-                    class="w-10 h-10 rounded-full bg-white shadow-xl hover:bg-teal-700 hover:text-white transition flex items-center justify-center text-2xl">
-                     ❮ 
-                </button>
-            </div>
+            @foreach ($companies as $company)
 
-            <div class="swiper partnerSwiper">
+                @php
+                    $companyTitle = app()->getLocale() === 'fa'
+                        ? $company->name
+                        : $company->slug;
+                @endphp
 
-                <div class="swiper-wrapper">
+                <div
+                    class="
+                        group
+                        relative
+                        min-h-[190px]
+                        md:min-h-[210px]
+                        flex
+                        flex-col
+                        items-center
+                        justify-center
+                        px-6
+                        py-10
+                        border-b
+                        border-slate-200
 
-                    @foreach ($companies as $company)
+                        lg:border-r
 
-                        <div class="swiper-slide">
+                        last:lg:border-r-0
+                    "
+                >
 
-                            <div class="h-40 md:h-48 lg:h-52 flex items-center justify-center group transition-all duration-500">
+                    {{-- Logo --}}
+                    @if ($company->logo)
 
-                                @if ($company->logo)
+                        <div class="h-20 md:h-24 w-full flex items-center justify-center mb-7">
 
-                                    <img
-                                        src="{{ asset('storage/' . $company->logo) }}"
-                                        alt="company logo"
-                                        class="max-h-48 md:max-h-60 lg:max-h-72 object-contain grayscale group-hover:grayscale-0 group-hover:scale-105 transition duration-300">
-
-                                @endif
-
-                            </div>
+                            <img
+                                src="{{ asset('storage/' . $company->logo) }}"
+                                alt="{{ $companyTitle }}"
+                                class="
+                                    max-h-20
+                                    md:max-h-24
+                                    max-w-[150px]
+                                    object-contain
+                                    grayscale
+                                    opacity-80
+                                    group-hover:grayscale-0
+                                    group-hover:opacity-100
+                                    group-hover:scale-105
+                                    transition-all
+                                    duration-500
+                                "
+                            >
 
                         </div>
 
-                    @endforeach
+                    @endif
+
+
+                    {{-- Company Name --}}
+                    <div class="text-center">
+
+                        <h3
+                            class="
+                                text-[11px]
+                                md:text-xs
+                                font-semibold
+                                tracking-[0.08em]
+                                uppercase
+                                text-slate-800
+                                leading-5
+                                transition-colors
+                                duration-300
+                                group-hover:text-teal-700
+                            "
+                        >
+                            {{ $companyTitle }}
+                        </h3>
+
+                    </div>
 
                 </div>
 
-            </div>
+            @endforeach
 
         </div>
 

@@ -26,7 +26,7 @@
 
                 <div>
                     <input type="text" name="slug" value="{{ old('slug') }}"
-                           placeholder="slug" class="input">
+                           placeholder="عنوان انگلیسی" class="input">
                     @error('slug')
                         <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
                     @enderror
@@ -70,24 +70,24 @@
 
                 <div>
                     <input type="text" name="location" value="{{ old('location') }}"
-                           placeholder="کارفرما" class="input">
+                           placeholder="موقعیت" class="input">
                     @error('location')
                         <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
                     @enderror
                 </div>
 
-                {{-- <div>
-                    <input type="number" name="area" value="{{ old('area') }}"
-                           placeholder="متراژ" class="input">
+                <div>
+                    <input type="text" name="area" value="{{ old('area') }}"
+                           placeholder="کارفرما" class="input">
                     @error('area')
                         <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
                     @enderror
-                </div> --}}
+                </div>
 
             </div>
 
             <div>
-                <textarea name="summary" placeholder="خلاصه"
+                <textarea name="summary" placeholder="توضیحات انگلیسی"
                           class="input h-24">{{ old('summary') }}</textarea>
                 @error('summary')
                     <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
@@ -95,7 +95,7 @@
             </div>
 
             <div>
-                <textarea name="description" placeholder="توضیحات کامل"
+                <textarea name="description" placeholder="توضیحات فارسی"
                           class="input h-32">{{ old('description') }}</textarea>
                 @error('description')
                     <p class="text-red-600 text-sm mt-1">{{ $message }}</p>

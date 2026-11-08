@@ -1,69 +1,89 @@
-<section class="relative">
 
-    <div class="swiper heroSwiper h-[70vh] xl:h-[80vh] relative">
+@php
+    $locale = app()->getLocale();
+    $dir = in_array($locale, ['fa', 'ar']) ? 'rtl' : 'ltr';
+    $isLatin = in_array($locale, ['en', 'de']);
+@endphp
 
-        <div class="swiper-wrapper">
+<section dir="{{ $dir }}" class="relative container mx-auto overflow-hidden">
 
-            <div class="swiper-slide relative">
-                <img class="w-full h-full object-cover" src="{{ asset('img/Header/H1.jpg') }}" alt="">
-            </div>
+    <div class="grid grid-cols-1 lg:grid-cols-2 min-h-[720px]">
 
-            <div class="swiper-slide">
-                <img class="w-full h-full object-cover" src="{{ asset('img/Header/H2.jpg') }}" alt="">
-            </div>
+        <div class="relative z-10 bg-[#F5F5F2] flex items-center px-7 sm:px-12 lg:px-16 xl:px-20 py-14 lg:py-20">
 
-            <div class="swiper-slide">
-                <img class="w-full h-full object-cover" src="{{ asset('img/Header/H3.jpg') }}" alt="">
-            </div>
+            <div class="w-full max-w-xl">
 
-            <div class="swiper-slide">
-                <img class="w-full h-full object-cover" src="{{ asset('img/Header/H4.jpg') }}" alt="">
-            </div>
-
-        </div>
-
-        <!-- Overlay for text readability -->
-        <div class="absolute inset-0 bg-gradient-to-r from-white/80 via-white/30 to-transparent pointer-events-none z-10">
-        </div>
-
-        <!-- Hero Text -->
-        <div class="absolute inset-0 z-20 flex items-center pointer-events-none">
-            <div class="max-w-7xl mx-auto px-4 w-full">
-                <div class="max-w-xl pointer-events-auto">
-
-                    <h1 class="font-serif text-5xl xl:text-6xl leading-tight text-teal-900">
-                        {{ __('messages.hero_name_line1') }}<br>
-                        {{ __('messages.hero_name_line2') }}
-                    </h1>
-
-                    <p class="mt-4 text-amber-300 tracking-[0.3em] text-sm xl:text-base uppercase">
+                <div class="flex items-center gap-4 mb-8">
+                    <span class="text-[#082429] tracking-[0.35em] rtl:tracking-normal text-xs sm:text-sm lg:text-base uppercase font-medium">
                         {{ __('messages.hero_role') }}
-                    </p>
-
-                    <span class="block w-16 h-px bg-amber-300 mt-6 mb-6"></span>
-
-                    <p class="text-teal-900/80 text-base xl:text-lg leading-relaxed">
-                        {{ __('messages.hero_description') }}
-                    </p>
-
-                    <a href="/{{ app()->getLocale() }}/projects"
-                        class="inline-flex items-center gap-2 mt-8 border border-amber-300 text-amber-300 tracking-widest text-sm px-6 py-3 hover:bg-amber-300 hover:text-white transition">
-                        {{ __('messages.explore_projects') }}
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                        </svg>
-                    </a>
-
+                    </span>
+                    <span class="w-10 h-px bg-[#B9A77B]"></span>
                 </div>
+
+                <h1 class="flex items-baseline gap-x-3 whitespace-nowrap leading-[1.05] text-[#082429] tracking-[-0.025em] rtl:tracking-normal font-normal {{ $isLatin ? 'font-hero-luxury' : '' }}">
+
+                    <span class="text-[34px] sm:text-[48px] lg:text-[48px] xl:text-[64px]">
+                        {{ __('messages.hero_name_line1') }}
+                    </span>
+
+                    <span class="text-[27px] sm:text-[38px] lg:text-[38px] xl:text-[50px]">
+                        {{ __('messages.hero_name_line2') }}
+                    </span>
+
+                </h1>
+
+                <p class="mt-7 text-[#082429] tracking-[0.28em] rtl:tracking-normal text-[11px] sm:text-[13px] lg:text-[15px] uppercase font-medium {{ $isLatin ? 'font-hero-luxury' : '' }}">
+                    {{ __('messages.hero_tagline') }}
+                </p>
+
+                <p class="mt-12 max-w-md text-[#082429] text-[14px] sm:text-[16px] lg:text-[18px] leading-[1.8]">
+                    {{ __('messages.hero_description') }}
+                </p>
+
+                <a href="/{{ $locale }}/projects" class="group inline-flex items-center gap-4 mt-10 text-[#082429] tracking-[0.2em] rtl:tracking-normal text-[11px] sm:text-[13px] lg:text-[15px] uppercase font-medium {{ $isLatin ? 'font-hero-luxury' : '' }}">
+
+                    <span>{{ __('messages.explore_projects') }}</span>
+
+                    <span class="flex items-center">
+                        <span class="w-8 h-px bg-[#082429] transition-all duration-300 group-hover:w-12"></span>
+
+                        <svg class="w-5 h-5 lg:w-6 lg:h-6 -ms-1 rtl:-scale-x-100 transition-transform duration-300 group-hover:translate-x-1 rtl:group-hover:-translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.4" d="M5 12h14M13 6l6 6-6 6"/>
+                        </svg>
+                    </span>
+
+                </a>
+
             </div>
         </div>
 
-        <!-- Scroll indicator -->
-        {{-- <div class="absolute bottom-8 left-4 xl:left-8 z-20 flex flex-col items-center gap-2 pointer-events-none">
-            <span class="block w-px h-10 bg-teal-900/40"></span>
-            <span class="text-[10px] tracking-[0.3em] text-teal-900/60">{{ __('messages.scroll') }}</span>
-        </div> --}}
+        <div class="relative min-h-[520px] lg:min-h-full overflow-hidden">
+
+            <img
+                src="{{ asset('img/Header/HERO.jpg') }}"
+                alt="{{ __('messages.hero_name_line1') }} {{ __('messages.hero_name_line2') }}"
+                class="absolute inset-0 w-full h-full object-cover"
+            >
+
+            <div class="absolute inset-y-0 start-0 w-24 sm:w-32 lg:w-40 bg-gradient-to-r rtl:bg-gradient-to-l from-[#F5F5F2] via-[#F5F5F2]/45 to-transparent pointer-events-none"></div>
+
+            <div class="absolute bottom-8 end-7 sm:end-10 lg:end-14 text-end">
+
+                <p class="text-white/80 tracking-[0.28em] rtl:tracking-normal text-[8px] sm:text-[10px] uppercase {{ $isLatin ? 'font-hero-luxury' : '' }}">
+                    {{ __('messages.hero_tag_1') }}
+                </p>
+
+                <p class="text-white/80 tracking-[0.28em] rtl:tracking-normal text-[8px] sm:text-[10px] uppercase mt-1 {{ $isLatin ? 'font-hero-luxury' : '' }}">
+                    {{ __('messages.hero_tag_2') }}
+                </p>
+
+                <p class="text-white/80 tracking-[0.28em] rtl:tracking-normal text-[8px] sm:text-[10px] uppercase mt-1 {{ $isLatin ? 'font-hero-luxury' : '' }}">
+                    {{ __('messages.hero_tag_3') }}
+                </p>
+
+            </div>
+
+        </div>
 
     </div>
 

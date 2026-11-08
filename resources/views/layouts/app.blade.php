@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<html lang="en" dir="ltr">
 
 <head>
     <meta charset="UTF-8">
@@ -7,12 +7,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@yield('title', 'Website')</title>
 
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
 
     
-    {{-- <link rel="stylesheet" href={{ asset("build/assets/app-BEEEs_qR.css") }}>
-    <link rel="stylesheet" href={{ asset("build/assets/app-CsdTnicT.css") }}>
-    <script src={{ asset("build/assets/app-B4Jkr9Ff.js") }}></script>   --}}
+    <link rel="stylesheet" href={{ asset("build/assets/app-BEEEs_qR.css") }}>
+    <link rel="stylesheet" href={{ asset("build/assets/app-CwctoW-C.css") }}>
+    <script src={{ asset("build/assets/app-xJpWWMB1.js") }}></script>  
 
     <div x-data="languageModal()" x-init="init()" @open-language-modal.window="open = true" x-cloak>
 

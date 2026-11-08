@@ -2,38 +2,26 @@
 
 return [
 
-    'brand_name' => 'VistaArch Architekturgruppe',
+    'cta_title' => 'Lassen Sie uns etwas Bedeutsames erschaffen.',
+    'cta_desc' => 'Ich bin immer offen für neue Projekte, Kooperationen oder Gelegenheiten, Teil innovativer Ideen zu sein.',
 
-    'brand_desc' =>
-    'Planung und Ausführung von Architektur-, Villen-, Wohn-, Gewerbe- und Innenarchitekturprojekten.',
+    'architect' => 'Architektin',
 
-    'services' => 'Dienstleistungen',
+    'navigation' => 'Navigation',
+    'home' => 'Startseite',
+    'about' => 'Über mich',
+    'projects' => 'Projekte',
+    'contact' => 'Kontakt',
 
-    'service_1' => 'Villendesign',
-    'service_2' => 'Wohnhausplanung',
-    'service_3' => 'Innenarchitektur',
-    'service_4' => 'Gebäudesanierung',
-    'service_5' => 'Ausführung und Bauüberwachung',
+    'follow' => 'Folgen',
+    'linkedin' => 'LinkedIn',
+    'instagram' => 'Instagram',
+    'email' => 'E-Mail',
 
-    'featured_projects' => 'Ausgewählte Projekte',
+    'email_me' => 'E-Mail senden',
+    'get_in_touch' => 'Kontakt aufnehmen',
 
-    'project_aftab' => 'Villa Aftab',
-    'project_baghestan' => 'Villa Baghestan',
-    'project_raya' => 'Bürogebäude Raya Shimi',
-    'project_tasvir' => 'Schönheitssalon Tasvir Khial',
-    'project_dreamhouse' => 'Dream House',
-
-    'contact_info' => 'Kontaktinformationen',
-
-    'office_location' => 'Bürostandort',
-
-    'office_name' => 'VistaArch Büro',
-
-    'address' =>
-    'Neyshabur, 15 Khordad 3, Arian-Komplex, 2. Stock, Einheit 5',
-
-    'copyright_1' => 'Alle Rechte vorbehalten von',
-    'copyright_2' => 'VistaArch Architekturgruppe',
-    'copyright_3' => '.',
+    'copyright' => 'Arezoo Razavi Tabar. Alle Rechte vorbehalten.',
+    'designed_by' => 'Mit Sinn entworfen und gebaut',
 
 ];

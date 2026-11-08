@@ -15,14 +15,16 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
 
                 <div>
-                    <input type="text" name="title" value="{{ old('title', $project->title) }}" class="input">
+                    <input type="text" name="title" value="{{ old('title', $project->title) }}"
+                           placeholder="عنوان پروژه" class="input">
                     @error('title')
                         <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
                     @enderror
                 </div>
 
                 <div>
-                    <input type="text" name="slug" value="{{ old('slug', $project->slug) }}" class="input">
+                    <input type="text" name="slug" value="{{ old('slug', $project->slug) }}"
+                           placeholder="عنوان انگلیسی" class="input">
                     @error('slug')
                         <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
                     @enderror
@@ -63,14 +65,15 @@
 
                 <div>
                     <input type="text" name="location" value="{{ old('location', $project->location) }}"
-                           placeholder="کارفرما" class="input">
+                           placeholder="موقعیت" class="input">
                     @error('location')
                         <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
                     @enderror
                 </div>
 
                 <div>
-                    <input type="number" name="area" value="{{ old('area', $project->area) }}" class="input">
+                    <input type="text" name="area" value="{{ old('area', $project->area) }}"
+                           placeholder="کارفرما" class="input">
                     @error('area')
                         <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
                     @enderror
@@ -79,14 +82,14 @@
             </div>
 
             <div>
-                <textarea name="summary" class="input h-24">{{ old('summary', $project->summary) }}</textarea>
+                <textarea name="summary" placeholder="توضیحات انگلیسی" class="input h-24">{{ old('summary', $project->summary) }}</textarea>
                 @error('summary')
                     <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
                 @enderror
             </div>
 
             <div>
-                <textarea name="description" class="input h-32">{{ old('description', $project->description) }}</textarea>
+                <textarea name="description" placeholder="توضیحات فارسی" class="input h-32">{{ old('description', $project->description) }}</textarea>
                 @error('description')
                     <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
                 @enderror

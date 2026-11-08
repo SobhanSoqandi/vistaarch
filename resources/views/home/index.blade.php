@@ -56,22 +56,33 @@
 
 
     <div class="container mx-auto">
+
+  
+
         <!-- projects !-->
         @include('home.sections.projects')
 
+              {{-- services --}}
+        @include('home.sections.services')
 
 
         <!-- companies !-->
         @include('home.sections.companies')
 
-        @if(app()->getLocale() === 'fa')
+        {{-- @if(app()->getLocale() === 'fa') --}}
         {{-- about 5 --}}
         @include('home.sections.aboutlanding')
-        @endif
+        {{-- @endif --}}
 
         
         <!-- Slider ranom !-->
-        @include('home.sections.random-projects')
+        {{-- @include('home.sections.random-projects') --}}
+
+        {{-- LETS CONNECT --}}
+        <div class="bg-[#FAFAF8]" >
+        @include('home.sections.Letsconnect')
+
+        </div>
 
         {{-- faq --}}
         @include('home.sections.faq')

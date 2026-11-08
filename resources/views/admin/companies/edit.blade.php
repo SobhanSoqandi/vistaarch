@@ -1,6 +1,7 @@
+```blade
 <x-admin-layout>
 
-    <h1 class="text-2xl font-bold mb-6">
+    <h1 class="text-2xl font-bold text-slate-800 mb-7">
         ویرایش شرکت
     </h1>
 
@@ -8,82 +9,103 @@
         action="{{ route('companies.update', $company) }}"
         method="POST"
         enctype="multipart/form-data"
-        class="bg-white p-6 rounded-xl shadow"
+        class="bg-white border border-slate-200 p-7 rounded-2xl shadow-sm"
     >
 
         @csrf
         @method('PUT')
 
-        <div class="mb-5">
+        <div class="mb-6">
 
-            <label class="block mb-2">
-                نام شرکت
+            <label class="block mb-2.5 text-sm font-semibold text-slate-700">
+                نام شرکت (فارسی)
             </label>
 
             <input
                 type="text"
                 name="name"
                 value="{{ old('name', $company->name) }}"
-                class="w-full border rounded-lg p-3 @error('name') border-red-500 @enderror"
+                class="w-full border border-slate-200 bg-slate-50 rounded-xl px-4 py-3 text-sm text-slate-800 outline-none transition-all duration-200 placeholder:text-slate-400 focus:bg-white focus:border-slate-400 focus:ring-4 focus:ring-slate-100 @error('name') border-red-400 focus:border-red-400 focus:ring-red-50 @enderror"
             >
 
             @error('name')
-                <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                <p class="text-red-500 text-sm mt-2">{{ $message }}</p>
             @enderror
 
         </div>
 
-        <div class="mb-5">
+        <div class="mb-6">
 
-            <label class="block mb-2">
-                آدرس
+            <label class="block mb-2.5 text-sm font-semibold text-slate-700">
+                عنوان انگلیسی
+            </label>
+
+            <input
+                type="text"
+                name="slug"
+                value="{{ old('slug', $company->slug) }}"
+                class="w-full border border-slate-200 bg-slate-50 rounded-xl px-4 py-3 text-sm text-slate-800 outline-none transition-all duration-200 placeholder:text-slate-400 focus:bg-white focus:border-slate-400 focus:ring-4 focus:ring-slate-100 @error('slug') border-red-400 focus:border-red-400 focus:ring-red-50 @enderror"
+            >
+
+            @error('slug')
+                <p class="text-red-500 text-sm mt-2">{{ $message }}</p>
+            @enderror
+
+        </div>
+
+        <div class="mb-6">
+
+            <label class="block mb-2.5 text-sm font-semibold text-slate-700">
+                توضیحات انگلیسی
             </label>
 
             <textarea
                 name="address"
-                class="w-full border rounded-lg p-3 @error('address') border-red-500 @enderror"
+                class="w-full min-h-32 border border-slate-200 bg-slate-50 rounded-xl px-4 py-3 text-sm text-slate-800 outline-none resize-y transition-all duration-200 placeholder:text-slate-400 focus:bg-white focus:border-slate-400 focus:ring-4 focus:ring-slate-100 @error('address') border-red-400 focus:border-red-400 focus:ring-red-50 @enderror"
             >{{ old('address', $company->address) }}</textarea>
 
             @error('address')
-                <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                <p class="text-red-500 text-sm mt-2">{{ $message }}</p>
             @enderror
 
         </div>
 
-        <div class="mb-5">
+        <div class="mb-6">
 
-            <label class="block mb-2">
-                توضیحات
+            <label class="block mb-2.5 text-sm font-semibold text-slate-700">
+                توضیحات فارسی
             </label>
 
             <textarea
                 name="description"
-                class="w-full border rounded-lg p-3 @error('description') border-red-500 @enderror"
+                class="w-full min-h-32 border border-slate-200 bg-slate-50 rounded-xl px-4 py-3 text-sm text-slate-800 outline-none resize-y transition-all duration-200 placeholder:text-slate-400 focus:bg-white focus:border-slate-400 focus:ring-4 focus:ring-slate-100 @error('description') border-red-400 focus:border-red-400 focus:ring-red-50 @enderror"
             >{{ old('description', $company->description) }}</textarea>
 
             @error('description')
-                <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                <p class="text-red-500 text-sm mt-2">{{ $message }}</p>
             @enderror
 
         </div>
 
-        <div class="mb-5">
+        <div class="mb-7">
 
-            <label class="block mb-2">
+            <label class="block mb-2.5 text-sm font-semibold text-slate-700">
                 لوگو شرکت
             </label>
 
             @if($company->logo)
 
-                <div class="mb-3">
+                <div class="mb-4 inline-flex flex-col items-center">
 
-                    <img 
-                        src="{{ Storage::url($company->logo) }}" 
-                        alt="لوگو"
-                        class="w-24 h-24 object-cover rounded-lg border"
-                    >
+                    <div class="w-28 h-28 rounded-2xl border border-slate-200 bg-slate-50 p-2 shadow-sm">
+                        <img
+                            src="{{ Storage::url($company->logo) }}"
+                            alt="لوگو"
+                            class="w-full h-full object-cover rounded-xl"
+                        >
+                    </div>
 
-                    <p class="text-sm text-gray-500 mt-1">
+                    <p class="text-xs text-slate-400 mt-2">
                         لوگوی فعلی
                     </p>
 
@@ -95,21 +117,21 @@
                 type="file"
                 name="logo"
                 accept="image/*"
-                class="w-full border rounded-lg p-3 @error('logo') border-red-500 @enderror"
+                class="w-full border border-dashed border-slate-300 bg-slate-50 rounded-xl px-4 py-3 text-sm text-slate-600 cursor-pointer transition-all duration-200 hover:bg-slate-100 hover:border-slate-400 file:mr-4 file:rounded-lg file:border-0 file:bg-slate-900 file:px-4 file:py-2 file:text-sm file:font-medium file:text-white file:cursor-pointer @error('logo') border-red-400 @enderror"
             >
 
-            <p class="text-sm text-gray-500 mt-1">
+            <p class="text-xs text-slate-400 mt-2">
                 در صورت آپلود عکس جدید، عکس قبلی جایگزین می‌شود.
             </p>
 
             @error('logo')
-                <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                <p class="text-red-500 text-sm mt-2">{{ $message }}</p>
             @enderror
 
         </div>
 
         <button
-            class="bg-slate-900 text-white px-5 py-3 rounded-lg w-40"
+            class="bg-slate-900 hover:bg-slate-800 active:bg-slate-950 text-white px-6 py-3 rounded-xl w-40 text-sm font-semibold shadow-sm hover:shadow-md transition-all duration-200"
         >
             ذخیره تغییرات
         </button>

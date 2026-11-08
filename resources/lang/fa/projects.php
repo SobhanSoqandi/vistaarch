@@ -24,5 +24,20 @@ return [
     'selected_projects_title' => 'پروژه‌های منتخب',
     'selected_projects_description' => 'مجموعه‌ای از پروژه‌ها که بازتاب تجربه من در مقیاس‌ها و گونه‌های مختلف ساختمانی است.',
     'view_all_projects' => 'مشاهده همه پروژه‌ها',
+    'messages.companies_description' => '',
 
+
+    'page_title' => 'پروژه‌های من',
+    'hero_title' => 'پروژه‌های من',
+    'hero_desc' => 'نمایش همه پروژه‌های معماری، طراحی داخلی، نما و بازسازی.',
+    'search_placeholder' => 'جستجوی پروژه...',
+    'all_styles' => 'همه سبک‌ها',
+    'all_services' => 'همه خدمات',
+    'all_years' => 'همه سال‌ها',
+    'search_btn' => 'جستجو',
+    'clear_filters' => 'حذف فیلترها',
+    'results_count' => 'تعداد نتایج',
+    'no_results' => 'پروژه‌ای یافت نشد',
+    'styles' => [],
+    'services' => [],
 ];
